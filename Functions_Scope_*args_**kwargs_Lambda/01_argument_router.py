@@ -5,14 +5,13 @@ Goal: Process the input positional arguments and return two separate lists:
 Core Concept: Iterating over *args and checking types using isinstance()."""
 
 def separate_types(*args):
-    list1 = []
-    list2 = []
+    numbers = []
+    strings = []
     for _ in args:
         if isinstance(_, str):
-            list2.append(_)
+            strings.append(_)
         elif isinstance(_, (int, float)):
-            list1.append(_)
-    print(list1)
-    print(list2)
+            numbers.append(_)
+    return (numbers, strings)
 
-separate_types(1, 3, 4, "3")
+print(separate_types(1, 3, 4, "3"))
